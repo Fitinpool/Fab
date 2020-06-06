@@ -1,22 +1,19 @@
-#include <iostream>
-#include <string>
-#include <stdlib.h>
-#include <fstream>
 
-using namespace std;
-
-void Ingreso(string Comprador, string Cuadro, string Pintura, string Direccion){
+void Ingreso(string Comprador, string Cuadro, string Pintura, string Direccion, string Fecha, string NumCompra){
 
     string line;
-    ofstream Formulario("Formulario.txt", ios::app);
+    ofstream Formulario("ClientesPendientes.txt", ios::app);
     int i = 0;
     bool bandera = true;
 
     if(Formulario.is_open()){
-        Formulario  << Comprador << ": \n\t- "
+        Formulario  << "#" << NumCompra << ": \n\t- "
+                    << Comprador << ".\n\t- "
                     << Cuadro << ".\n\t- "
                     << Pintura << ".\n\t- "
-                    << Direccion << "." << endl;
+                    << Direccion << ".\n\t- "
+                    << Fecha << "."
+                    << endl;
     }
 
     Formulario.close();
